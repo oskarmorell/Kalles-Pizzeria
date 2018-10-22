@@ -8,8 +8,23 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" type="text/css" href="kallesstylesheet.css">
+    <script>
+      function startTime() {
+          var today = new Date();
+          var h = today.getHours();
+          var m = today.getMinutes();
+          m = checkTime(m);
+          document.getElementById('klocka').innerHTML =
+          h + ":" + m ;
+          var t = setTimeout(startTime, 500);
+      }
+      function checkTime(i) {
+          if (i < 10) {i = "0" + i};  
+          return i;
+      }
+    </script>
   </head>
-  <body>
+  <body onload="startTime()">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -44,6 +59,10 @@
       <div class="col-md-10">
         <h3>Adress:</h3>        
         <p>Göteborg Kabobgatan 69</p>
+      </div>
+      <div class="col-md-10">
+        <h3>Klocka:</h3>        
+        <p id="klocka"></p>
       </div>
       <img src="pizza2.jpg" alt="pizza kille">
       <img src="fotmassage.jpg" alt="Fotmassage" style="width:500px; height:500px;">
