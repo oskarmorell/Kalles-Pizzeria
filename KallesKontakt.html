@@ -9,6 +9,26 @@
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/js/bootstrap.min.js">
     <link rel="stylesheet" type="text/css" href="kallesstylesheet.css">
+    <script type="text/javascript">
+      var bilder = new Array();
+      for (var i = 2; i < 11; i++) {
+        bilder.push("pizza" + i + ".jpg");
+      }
+      var x = 0;
+      function changeImage() {
+        document.getElementById('ad').src = bilder[x];
+        if (x < 8) {
+          x += 1;
+        } else {
+          x = 0;
+        }
+      }
+      window.onload = function() {
+        setInterval(function () {
+          changeImage();
+        }, 2000);
+      }
+    </script>
   </head>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,8 +68,7 @@
         <h3>Adress:</h3>        
         <p>Göteborg Kabobgatan 69</p>
       </div>
-      <img src="pizza2.jpg" alt="pizza kille">
-      <img src="fotmassage.jpg" alt="Fotmassage" style="width:500px; height:500px;">
+      <img id="ad" src="pizza1.jpg" alt="pizza" height="420" width="420" />
     </div>
 </div>
       
